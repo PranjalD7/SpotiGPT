@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script >
+    function getArt()
+    {
+
+
+
+        fetch("http://localhost:8080/api/user-top-artists").then(response=>response.json()).then(data=>{
+            console.log(data);
+
+            let artist='';
+            let genre='';
+            for(let i = 0; i <5; i++) {
+                let obj = data[i];
+
+                artist+=obj.name+',';
+
+                 for(let k=0;k<2;k++)
+                 {
+                   genre+= obj.genres[k] +",";
+                 }
+            }
+            console.log(artist)
+            console.log(genre)
+
+            let call="Recommend me some songs based on these genres "+genre;
+            console.log(call)
+
+
+
+            let url="http://localhost:8080/chat?prompt="+call;
+
+
+
+            let response =  fetch(url)  .then(function(response) {
+                return response.text();
+            }).then(function(data) {
+                console.log(data); // this will be a string
+            });
+
+
+
+        })
+
+
+        return false;
+    }
+
+</script>
+<body>
+
+<form action="" >
+    <button style="height:200px;width:200px" onclick= 'return getArt();'>artists</button>
+    <span id="ch">
+
+    </span>
+</form>
+</body>
+</html>
