@@ -1,0 +1,35 @@
+.navbar-custom
+{
+  background-color: #1DB954;
+}
+
+
+
+.navbar-custom .navbar-brand
+{
+  color: #191414;
+  margin-left: 40px;
+}
+
+body{
+  background-color: #333333;
+}
+
+
+.btn-success{
+  height: 75px;
+  width: 150px;
+  color: #333333;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center{
+  margin-top: 20%;
+}
+
+.lead{
+  color: white;
+}
